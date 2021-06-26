@@ -13,5 +13,10 @@ Programación de Dispositivos Móviles I | Unidad 5 | Web Services
 8.- Mostrar aviso para indicar que el pedido se realizó
 
 
+Registrar Usuario
 El usuario podrá consultar una lista general de los pedidos que ha hecho.
 El usuario podrá editar sus datos.
+
+
+
+
