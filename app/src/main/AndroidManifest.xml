@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/order_it_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderIT">
-        <activity android:name=".ACT_SplashScreen"
+        <activity android:name=".ACT_Registro" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".ACT_SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity
+            android:name=".ACT_Login"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
