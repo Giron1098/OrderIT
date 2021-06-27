@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/order_it_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderIT">
-        <activity android:name=".ACT_Registro" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".ACT_Restaurantes"></activity>
+        <activity
+            android:name=".ACT_Registro"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ACT_SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -21,7 +24,7 @@
         </activity>
         <activity
             android:name=".ACT_Login"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"
