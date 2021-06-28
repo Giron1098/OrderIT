@@ -30,7 +30,7 @@ public class ACT_SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(ACT_SplashScreen.this, ACT_Login.class);
+                Intent intent = new Intent(ACT_SplashScreen.this, EsperaActivity.class);
                 startActivity(intent);
                 finish();
             }
