@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderIT"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EsperaActivity"></activity>
+        <activity android:name=".EsperaActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".ACT_Restaurantes" />
         <activity
             android:name=".ACT_Registro"

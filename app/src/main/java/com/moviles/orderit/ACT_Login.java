@@ -28,6 +28,9 @@ public class ACT_Login extends AppCompatActivity {
     Button btn_login;
     String email, password;
 
+    //PONGAN SU PROPIA IP gggg
+    String ip="192.168.1.70";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +47,7 @@ public class ACT_Login extends AppCompatActivity {
                 email=et_email.getText().toString();
                 password=et_password.getText().toString();
                 if(!email.isEmpty() && !password.isEmpty()){
-                    validarUsuario("http://192.168.1.5/orderit/validarUsuario.php");
+                    validarUsuario("http://"+ip+"/orderit/validarUsuario.php");
                 }else{
                     Toast.makeText(ACT_Login.this,"No se permiten campos vacios",Toast.LENGTH_SHORT).show();
                 }
@@ -100,8 +103,8 @@ public class ACT_Login extends AppCompatActivity {
 
     private void recuperarPreferencias(){
         SharedPreferences preferences=getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
-        et_email.setText(preferences.getString("email","juan@gmail.com"));
-        et_password.setText(preferences.getString("password","oyasumimir"));
+        et_email.setText(preferences.getString("email",""));
+        et_password.setText(preferences.getString("password",""));
     }
 
     private void RutaRegistrar() {
