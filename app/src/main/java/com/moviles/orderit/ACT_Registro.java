@@ -2,6 +2,7 @@ package com.moviles.orderit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,9 @@ public class ACT_Registro extends AppCompatActivity {
     EditText et_nombre,et_apPaterno,et_apMaterno,et_email,et_password;
     Button btn_registroUsuario;
 
+    //PONGAN SU PROPIA IP gggg
+    String ip="192.168.1.70";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +44,7 @@ public class ACT_Registro extends AppCompatActivity {
         btn_registroUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://192.168.1.5/orderit/registroUsuario.php");
+                ejecutarServicio("http://"+ip+"/orderit/registroUsuario.php");
             }
         });
     }
@@ -50,6 +54,14 @@ public class ACT_Registro extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(), "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                et_nombre.setText("");
+                et_apPaterno.setText("");
+                et_apMaterno.setText("");
+                et_email.setText("");
+                et_password.setText("");
+
+                Intent int_act_loginForm= new Intent(ACT_Registro.this   , ACT_Login.class);
+                startActivity(int_act_loginForm);
             }
         }, new Response.ErrorListener() {
             @Override
