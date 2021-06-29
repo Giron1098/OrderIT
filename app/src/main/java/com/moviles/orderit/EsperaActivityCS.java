@@ -10,16 +10,17 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ProgressBar;
 
-public class EsperaActivity extends AppCompatActivity {
+public class EsperaActivityCS extends AppCompatActivity {
 
-    ProgressBar progressBar;
+    ProgressBar progressBarCS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_espera);
-        progressBar=findViewById(R.id.progressBarCS);
-        progressBar.setVisibility(View.VISIBLE);
+        setContentView(R.layout.lay_act_espera_activity_cs);
+
+        progressBarCS=findViewById(R.id.progressBarCS);
+        progressBarCS.setVisibility(View.VISIBLE);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -37,5 +38,6 @@ public class EsperaActivity extends AppCompatActivity {
                 }
             }
         },2000);
+
     }
 }

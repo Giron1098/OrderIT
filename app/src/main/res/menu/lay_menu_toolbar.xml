@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/op_ver_perfil"
+        android:title="Ver perfil"></item>
+    <item
+        android:id="@+id/op_ver_pedidos"
+        android:title="Ver pedidos"></item>
+    <item
+        android:id="@+id/op_cerrar_sesion"
+        android:title="Cerrar sesión"></item>
+
+</menu>
