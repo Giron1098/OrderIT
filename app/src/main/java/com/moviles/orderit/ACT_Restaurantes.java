@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,6 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ACT_Restaurantes extends AppCompatActivity {
@@ -40,7 +42,7 @@ public class ACT_Restaurantes extends AppCompatActivity {
     RecyclerView recyclerView;
 
     //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.5";
+    String ip="192.168.1.70";
 
 
 
@@ -58,9 +60,28 @@ public class ACT_Restaurantes extends AppCompatActivity {
 
         restauranteList = new ArrayList<>();
 
+        obtenerFecha();
+
 
         ejecutarServicio("http://"+ip+"/orderit/consultaRestaurantePedido.php");
         
+    }
+
+    private void obtenerFecha() {
+
+        Calendar c = Calendar.getInstance();
+        TextView tv_titulo = findViewById(R.id.TV_Titulo);
+
+        String dia, mes, annio;
+
+        dia = Integer.toString(c.get(Calendar.DATE));
+        mes = Integer.toString(c.get(Calendar.MONTH));
+        annio = Integer.toString(c.get(Calendar.YEAR));
+
+        System.out.println (dia + "/" + mes +"/" + annio);
+
+        //tv_titulo.setText(dia + "/" + mes +"/" + annio);
+
     }
 
     private void ejecutarServicio(String URL) {
