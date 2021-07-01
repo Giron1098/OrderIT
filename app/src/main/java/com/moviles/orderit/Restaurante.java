@@ -8,17 +8,21 @@ public class Restaurante {
     String horario;
     String tiempoEstimado;
     int costoEntrega;
+    int idPlatillos;
+    String nombrePlatillo;
+    double precio;
 
-    public Restaurante(int idRestaurante, String nombreRest, String direccion, String horario, String tiempoEstimado, int costoEntrega) {
+    public Restaurante(int idRestaurante, String nombreRest, String direccion, String horario, String tiempoEstimado, int costoEntrega, int idPlatillos, String nombrePlatillo, double precio) {
         this.idRestaurante = idRestaurante;
         this.nombreRest = nombreRest;
         this.direccion = direccion;
         this.horario = horario;
         this.tiempoEstimado = tiempoEstimado;
         this.costoEntrega = costoEntrega;
+        this.idPlatillos = idPlatillos;
+        this.nombrePlatillo = nombrePlatillo;
+        this.precio = precio;
     }
-
-
 
     public int getIdRestaurante() {
         return idRestaurante;
@@ -68,5 +72,27 @@ public class Restaurante {
         this.costoEntrega = costoEntrega;
     }
 
+    public int getIdPlatillos() {
+        return idPlatillos;
+    }
 
+    public void setIdPlatillos(int idPlatillos) {
+        this.idPlatillos = idPlatillos;
+    }
+
+    public String getNombrePlatillo() {
+        return nombrePlatillo;
+    }
+
+    public void setNombrePlatillo(String nombrePlatillo) {
+        this.nombrePlatillo = nombrePlatillo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 }

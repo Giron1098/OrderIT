@@ -1,10 +1,12 @@
 package com.moviles.orderit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +39,9 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
         holder.TV_NombreRest.setText(restaurante.getNombreRest());
         holder.TV_TiempoRes.setText("Tiempo estimado de entrega: "+restaurante.getTiempoEstimado());
         holder.TV_CostoRes.setText("Costo de entrega: $"+restaurante.getCostoEntrega());
+
+        holder.TV_NombrePlat.setText(restaurante.getNombrePlatillo());
+        holder.TV_CostoPlat.setText("$"+restaurante.getPrecio());
     }
 
     @Override
@@ -46,15 +51,32 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
 
     class RestauranteViewHolder extends RecyclerView.ViewHolder{
 
-        TextView TV_NombreRest, TV_TiempoRes, TV_CostoRes;
+        TextView TV_NombreRest, TV_TiempoRes, TV_CostoRes, TV_NombrePlat, TV_CostoPlat;
 
         public RestauranteViewHolder(View itemView)
         {
             super(itemView);
 
             TV_NombreRest = itemView.findViewById(R.id.TV_NombreRest);
-            TV_TiempoRes = itemView.findViewById(R.id.TV_TiempoRes);
+            TV_TiempoRes = itemView.findViewById(R.id.TV_TiempoRest);
             TV_CostoRes = itemView.findViewById(R.id.TV_CostoRes);
+
+            TV_NombrePlat = itemView.findViewById(R.id.TV_NombrePlat);
+            TV_CostoPlat = itemView.findViewById(R.id.TV_CostoPlat);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    /*Context context = itemView.getContext();
+                    Intent intent = new Intent(context, ACT_Pedido.class);
+                    intent.putExtra("ID_Platillo", restauranteList.get(getAdapterPosition()).getIdPlatillos());
+                    context.startActivity(intent);*/
+
+                    System.out.println("ID del platillo: "+restauranteList.get(getAdapterPosition()).getIdPlatillos());
+                    System.out.println("Platillo: "+restauranteList.get(getAdapterPosition()).getNombrePlatillo());
+                    System.out.println("Restaurante: "+restauranteList.get(getAdapterPosition()).getNombreRest());
+                }
+            });
         }
 
     }

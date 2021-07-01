@@ -59,13 +59,13 @@ public class ACT_Restaurantes extends AppCompatActivity {
         restauranteList = new ArrayList<>();
 
 
-        ejecutarServicio("http://"+ip+"/orderit/consultaRestaurantes.php");
+        ejecutarServicio("http://"+ip+"/orderit/consultaRestaurantePedido.php");
         
     }
 
     private void ejecutarServicio(String URL) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -77,13 +77,18 @@ public class ACT_Restaurantes extends AppCompatActivity {
 
                         JSONObject restaurante = array.getJSONObject(i);
 
+
+
                         restauranteList.add(new Restaurante(
                                 restaurante.getInt("idRestaurante"),
                                 restaurante.getString("nombreRest"),
                                 restaurante.getString("direccion"),
                                 restaurante.getString("horario"),
                                 restaurante.getString("tiempoEstimado"),
-                                restaurante.getInt("costoEntrega")
+                                restaurante.getInt("costoEntrega"),
+                                restaurante.getInt("idPlatillos"),
+                                restaurante.getString("nombrePlatillo"),
+                                restaurante.getDouble("precio")
                         ));
                     }
 
