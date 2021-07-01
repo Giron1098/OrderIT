@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderIT"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EsperaActivityCS"></activity>
+        <activity android:name=".EsperaActivityCS"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".EsperaActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

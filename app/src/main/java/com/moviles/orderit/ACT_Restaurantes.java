@@ -40,7 +40,7 @@ public class ACT_Restaurantes extends AppCompatActivity {
     RecyclerView recyclerView;
 
     //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.70";
+    String ip="192.168.1.5";
 
 
 
@@ -132,7 +132,7 @@ public class ACT_Restaurantes extends AppCompatActivity {
         {
             SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
             preferences.edit().clear().commit();
-            Intent intent=new Intent(getApplicationContext(), ACT_Login.class);
+            Intent intent=new Intent(getApplicationContext(), EsperaActivityCS.class);
             startActivity(intent);
             finish();
         }

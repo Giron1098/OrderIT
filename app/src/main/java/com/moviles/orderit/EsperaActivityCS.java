@@ -25,17 +25,9 @@ public class EsperaActivityCS extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
-                boolean sesion=preferences.getBoolean("sesion",false);
-                if(sesion){
-                    Intent intent=new Intent(getApplicationContext(),ACT_Restaurantes.class);
-                    startActivity(intent);
-                    finish();
-                }else{
-                    Intent intent=new Intent(getApplicationContext(),ACT_Login.class);
-                    startActivity(intent);
-                    finish();
-                }
+                Intent intent=new Intent(getApplicationContext(),ACT_Login.class);
+                startActivity(intent);
+                finish();
             }
         },2000);
 
