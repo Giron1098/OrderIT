@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_orderit`.`Pedidos` (
   `idPedidos` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fecha` DATE NOT NULL,
+  `fecha` VARCHAR(80) NOT NULL,
   `cantidad` INT NOT NULL,
   `total` DOUBLE NOT NULL,
   `Platillos_idPlatillos` INT UNSIGNED NOT NULL,
