@@ -67,14 +67,18 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Context context = itemView.getContext();
-                    Intent intent = new Intent(context, ACT_Pedido.class);
+                    Context context = itemView.getContext();
+                    Intent intent = new Intent(context, ACT_RegistroPedido.class);
                     intent.putExtra("ID_Platillo", restauranteList.get(getAdapterPosition()).getIdPlatillos());
-                    context.startActivity(intent);*/
+                    intent.putExtra("Platillo", restauranteList.get(getAdapterPosition()).getNombrePlatillo());
+                    intent.putExtra("Restaurante", restauranteList.get(getAdapterPosition()).getNombreRest());
+                    intent.putExtra("Costo_Platillo", restauranteList.get(getAdapterPosition()).getPrecio());
+                    context.startActivity(intent);
 
                     System.out.println("ID del platillo: "+restauranteList.get(getAdapterPosition()).getIdPlatillos());
                     System.out.println("Platillo: "+restauranteList.get(getAdapterPosition()).getNombrePlatillo());
                     System.out.println("Restaurante: "+restauranteList.get(getAdapterPosition()).getNombreRest());
+                    System.out.println("Costo_Platillo: "+restauranteList.get(getAdapterPosition()).getPrecio());
                 }
             });
         }
