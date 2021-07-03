@@ -11,10 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -22,6 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ACT_RegistroPedido extends AppCompatActivity {
 
@@ -35,6 +40,8 @@ public class ACT_RegistroPedido extends AppCompatActivity {
     Double costo_platillo;
     String nombre_usuario;
     int id;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +71,10 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         TextView tv_etiqueta = findViewById(R.id.TV_Etiqueta);
 
 
+
         EditText et_cantidadPedido = findViewById(R.id.ET_CantidadPedido);
+
+
 
         Button btn_hacerPedido = findViewById(R.id.BTN_HacerPedido);
         Button btn_calcularTotal = findViewById(R.id.BTN_CalcularTotal);
@@ -89,7 +99,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
 
 
         obtenerDatos("http://"+ip+"/orderit/recuperaDatosUsuario.php?email="+email+"&password="+password);
-
+        TextView tv_idusuario=findViewById(R.id.tv_IDuser);
 
         btn_calcularTotal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +120,57 @@ public class ACT_RegistroPedido extends AppCompatActivity {
             }
         });
 
+        btn_hacerPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ejecutarPedido("http://"+ip+"/orderit/registroPedido.php?fecha="+tv_datePedido+"&cantidad="+et_cantidadPedido+
+                        "&total="+tv_totalPedido+"&Platillos_idPlatillos="+tv_idPlatillo+"&Usuario_idUsuario="+tv_idusuario);
+            }
+        });
 
+
+    }
+
+    private void ejecutarPedido(String URL){
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "Pedido Exitoso", Toast.LENGTH_SHORT).show();
+
+                Intent int_act_loginForm= new Intent(ACT_RegistroPedido.this   , ACT_Restaurantes.class);
+                startActivity(int_act_loginForm);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                TextView tv_totalPedido = findViewById(R.id.TV_TotalPedido);
+                TextView tv_idPlatillo = findViewById(R.id.TV_IDPlatillo);
+                TextView tv_datePedido = findViewById(R.id.TV_DatePedido);
+                TextView tv_idusuario = findViewById(R.id.tv_IDuser);
+                EditText et_cantidadPedido = findViewById(R.id.ET_CantidadPedido);
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("fecha",tv_datePedido.getText().toString());
+                System.out.println("fecha"+tv_datePedido.getText().toString());
+                parametros.put("cantidad",et_cantidadPedido.getText().toString());
+                System.out.println("cantidad"+et_cantidadPedido.getText().toString());
+                parametros.put("total",tv_totalPedido.getText().toString());
+                System.out.println("total"+tv_totalPedido.getText().toString());
+                parametros.put("idPlatillos",tv_idPlatillo.getText().toString());
+                System.out.println("idPlatillos"+tv_idPlatillo.getText().toString());
+                parametros.put("idUsuario",tv_idusuario.getText().toString());
+                System.out.println("idUsuario"+tv_idusuario.getText().toString());
+
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
     private void obtenerDatos(String URL){
