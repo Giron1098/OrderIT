@@ -27,7 +27,7 @@ public class ACT_Registro extends AppCompatActivity {
     Button btn_registroUsuario;
 
     //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.5";
+    String ip="192.168.1.70";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

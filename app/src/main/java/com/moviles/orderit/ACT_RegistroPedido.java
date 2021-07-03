@@ -32,7 +32,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
 
     Bundle datos;
 
-    String ip="192.168.1.5";
+    String ip="192.168.1.70";
 
     int ID_Platillo;
     String nombrePlatillo;
@@ -123,8 +123,8 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         btn_hacerPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarPedido("http://"+ip+"/orderit/registroPedido.php?fecha="+tv_datePedido+"&cantidad="+et_cantidadPedido+
-                        "&total="+tv_totalPedido+"&Platillos_idPlatillos="+tv_idPlatillo+"&Usuario_idUsuario="+tv_idusuario);
+                ejecutarPedido("http://"+ip+"/orderit/registroPedido.php?fecha="+tv_datePedido.getText().toString()+"&cantidad="+et_cantidadPedido.getText().toString()+
+                        "&total="+tv_totalPedido.getText().toString()+"&Platillos_idPlatillos="+tv_idPlatillo.getText().toString()+"&Usuario_idUsuario="+tv_idusuario.getText().toString());
             }
         });
 
@@ -154,17 +154,19 @@ public class ACT_RegistroPedido extends AppCompatActivity {
                 TextView tv_datePedido = findViewById(R.id.TV_DatePedido);
                 TextView tv_idusuario = findViewById(R.id.tv_IDuser);
                 EditText et_cantidadPedido = findViewById(R.id.ET_CantidadPedido);
+
                 Map<String,String> parametros=new HashMap<String, String>();
+
                 parametros.put("fecha",tv_datePedido.getText().toString());
-                System.out.println("fecha"+tv_datePedido.getText().toString());
+
                 parametros.put("cantidad",et_cantidadPedido.getText().toString());
-                System.out.println("cantidad"+et_cantidadPedido.getText().toString());
+
                 parametros.put("total",tv_totalPedido.getText().toString());
-                System.out.println("total"+tv_totalPedido.getText().toString());
+
                 parametros.put("idPlatillos",tv_idPlatillo.getText().toString());
-                System.out.println("idPlatillos"+tv_idPlatillo.getText().toString());
+
                 parametros.put("idUsuario",tv_idusuario.getText().toString());
-                System.out.println("idUsuario"+tv_idusuario.getText().toString());
+
 
                 return parametros;
             }
