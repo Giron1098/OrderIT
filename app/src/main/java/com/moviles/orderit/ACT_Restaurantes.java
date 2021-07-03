@@ -42,7 +42,7 @@ public class ACT_Restaurantes extends AppCompatActivity {
     RecyclerView recyclerView;
 
     //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.70";
+    String ip="192.168.1.5";
 
 
 

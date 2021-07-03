@@ -29,7 +29,7 @@ public class ACT_Login extends AppCompatActivity {
     String email, password;
 
     //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.70";
+    String ip="192.168.1.5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,7 @@ public class ACT_Login extends AppCompatActivity {
         editor.putString("email",email);
         editor.putString("password",password);
         editor.putBoolean("sesion",true);
-        editor.commit();
+        editor.apply();
     }
 
     private void recuperarPreferencias(){
