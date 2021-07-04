@@ -129,7 +129,8 @@ public class ACT_Restaurantes extends AppCompatActivity {
 
         if (id==R.id.op_ver_perfil)
         {
-            Toast.makeText(ACT_Restaurantes.this,"Ver perfil",Toast.LENGTH_SHORT).show();
+            Intent int_act_verPerfil= new Intent(ACT_Restaurantes.this, ACT_VerPerfil.class);
+            startActivity(int_act_verPerfil);
         } else if (id==R.id.op_ver_pedidos)
         {
             Intent int_act_verPedido= new Intent(ACT_Restaurantes.this, ACT_VerPedidos.class);
