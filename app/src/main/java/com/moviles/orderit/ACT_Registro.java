@@ -26,8 +26,11 @@ public class ACT_Registro extends AppCompatActivity {
     EditText et_nombre,et_apPaterno,et_apMaterno,et_email,et_password;
     Button btn_registroUsuario;
 
-    //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.70";
+    // DIRECCIÓN IP
+
+    Constantes constante = new Constantes();
+
+    String ip = constante.IP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

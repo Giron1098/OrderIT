@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderIT"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ACT_RegistroPedido"></activity>
+        <activity android:name=".ACT_VerPedidos"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".ACT_RegistroPedido" />
         <activity
             android:name=".EsperaActivityCS"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

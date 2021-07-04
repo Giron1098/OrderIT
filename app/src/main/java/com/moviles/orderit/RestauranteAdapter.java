@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,12 +56,12 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
         {
             super(itemView);
 
-            TV_NombreRest = itemView.findViewById(R.id.TV_NombreRest);
+            TV_NombreRest = itemView.findViewById(R.id.TV_RestaurantePedido);
             TV_TiempoRes = itemView.findViewById(R.id.TV_TiempoRest);
             TV_CostoRes = itemView.findViewById(R.id.TV_CostoRes);
 
-            TV_NombrePlat = itemView.findViewById(R.id.TV_NombrePlat);
-            TV_CostoPlat = itemView.findViewById(R.id.TV_CostoPlat);
+            TV_NombrePlat = itemView.findViewById(R.id.TV_PlatilloPedido);
+            TV_CostoPlat = itemView.findViewById(R.id.TV_CostoPlatilloPedido);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,12 +72,14 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
                     intent.putExtra("Platillo", restauranteList.get(getAdapterPosition()).getNombrePlatillo());
                     intent.putExtra("Restaurante", restauranteList.get(getAdapterPosition()).getNombreRest());
                     intent.putExtra("Costo_Platillo", restauranteList.get(getAdapterPosition()).getPrecio());
+                    intent.putExtra("Costo_Entrega", restauranteList.get(getAdapterPosition()).getCostoEntrega());
                     context.startActivity(intent);
 
                     System.out.println("ID del platillo: "+restauranteList.get(getAdapterPosition()).getIdPlatillos());
                     System.out.println("Platillo: "+restauranteList.get(getAdapterPosition()).getNombrePlatillo());
                     System.out.println("Restaurante: "+restauranteList.get(getAdapterPosition()).getNombreRest());
                     System.out.println("Costo_Platillo: "+restauranteList.get(getAdapterPosition()).getPrecio());
+                    System.out.println("Costo_Entrega: "+restauranteList.get(getAdapterPosition()).getCostoEntrega());
                 }
             });
         }

@@ -41,9 +41,11 @@ public class ACT_Restaurantes extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.70";
+    // DIRECCIÓN IP
 
+    Constantes constante = new Constantes();
+
+    String ip = constante.IP;
 
 
     @Override
@@ -60,29 +62,11 @@ public class ACT_Restaurantes extends AppCompatActivity {
 
         restauranteList = new ArrayList<>();
 
-        //obtenerFecha();
-
 
         ejecutarServicio("http://"+ip+"/orderit/consultaRestaurantePedido.php");
         
     }
 
-    private void obtenerFecha() {
-
-        Calendar c = Calendar.getInstance();
-        TextView tv_titulo = findViewById(R.id.TV_Titulo);
-
-        String dia, mes, annio;
-
-        dia = Integer.toString(c.get(Calendar.DATE));
-        mes = Integer.toString(c.get(Calendar.MONTH));
-        annio = Integer.toString(c.get(Calendar.YEAR));
-
-        System.out.println (dia + "/" + mes +"/" + annio);
-
-        //tv_titulo.setText(dia + "/" + mes +"/" + annio);
-
-    }
 
     private void ejecutarServicio(String URL) {
 
@@ -148,7 +132,8 @@ public class ACT_Restaurantes extends AppCompatActivity {
             Toast.makeText(ACT_Restaurantes.this,"Ver perfil",Toast.LENGTH_SHORT).show();
         } else if (id==R.id.op_ver_pedidos)
         {
-            Toast.makeText(ACT_Restaurantes.this,"Ver pedidos",Toast.LENGTH_SHORT).show();
+            Intent int_act_verPedido= new Intent(ACT_Restaurantes.this, ACT_VerPedidos.class);
+            startActivity(int_act_verPedido);
         } else if (id==R.id.op_cerrar_sesion)
         {
             SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);

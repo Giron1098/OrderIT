@@ -28,8 +28,11 @@ public class ACT_Login extends AppCompatActivity {
     Button btn_login;
     String email, password;
 
-    //PONGAN SU PROPIA IP gggg
-    String ip="192.168.1.70";
+    // DIRECCIÓN IP
+
+    Constantes constante = new Constantes();
+
+    String ip = constante.IP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

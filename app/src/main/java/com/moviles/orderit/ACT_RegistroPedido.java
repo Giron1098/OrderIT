@@ -24,6 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.DoubleBuffer;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,13 +33,18 @@ public class ACT_RegistroPedido extends AppCompatActivity {
 
     Bundle datos;
 
-    String ip="192.168.1.70";
+    // DIRECCIÓN IP
+
+    Constantes constante = new Constantes();
+
+    String ip = constante.IP;
 
     int ID_Platillo;
     String nombrePlatillo;
     String nombreRestaurante;
     Double costo_platillo;
     String nombre_usuario;
+    int costo_entrega;
     int id;
 
 
@@ -59,7 +65,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         Calendar c = Calendar.getInstance();
         String dia, mes, annio;
         dia = Integer.toString(c.get(Calendar.DATE));
-        mes = Integer.toString(c.get(Calendar.MONTH));
+        mes = Integer.toString(c.get(Calendar.MONTH)+1);
         annio = Integer.toString(c.get(Calendar.YEAR));
 
         TextView tv_nombreRestaurante = findViewById(R.id.TV_NombreRestaurante);
@@ -68,7 +74,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         TextView tv_totalPedido = findViewById(R.id.TV_TotalPedido);
         TextView tv_idPlatillo = findViewById(R.id.TV_IDPlatillo);
         TextView tv_datePedido = findViewById(R.id.TV_DatePedido);
-        TextView tv_etiqueta = findViewById(R.id.TV_Etiqueta);
+        TextView tv_costo_entrega = findViewById(R.id.TV_CostoEntPedido);
 
 
 
@@ -86,6 +92,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         nombreRestaurante = datos.getString("Restaurante");
         costo_platillo = datos.getDouble("Costo_Platillo");
         nombre_usuario = datos.getString("nombreUsuario");
+        costo_entrega = datos.getInt("Costo_Entrega");
 
 
 
@@ -94,6 +101,11 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         tv_costoPlatillo.setText("$"+costo_platillo);
         tv_idPlatillo.setText(""+ID_Platillo);
         tv_datePedido.setText(dia + "/" + mes +"/" + annio);
+        tv_costo_entrega.setText(""+costo_entrega);
+
+
+        tv_idPlatillo.setVisibility(View.INVISIBLE);
+        tv_datePedido.setVisibility(View.INVISIBLE);
 
 
 
@@ -110,7 +122,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
 
                 Double cantidad = Double.parseDouble(S_cantidad);
 
-                total = costo_platillo * cantidad;
+                total = (costo_platillo * cantidad) + costo_entrega;
 
 
                 tv_totalPedido.setText(""+total);
@@ -187,6 +199,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
                         System.out.println(jsonObject.getInt("idUsuario"));
                         System.out.println(jsonObject.getString("nombreUsuario"));
                         tv_idusuario.setText(""+jsonObject.getInt("idUsuario"));
+                        tv_idusuario.setVisibility(View.INVISIBLE);
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
