@@ -47,7 +47,13 @@ public class ACT_Registro extends AppCompatActivity {
         btn_registroUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://"+ip+"/orderit/registroUsuario.php");
+                if (!et_nombre.getText().toString().isEmpty() && !et_apPaterno.getText().toString().isEmpty() && !et_apMaterno.getText().toString().isEmpty()
+                        && !et_email.getText().toString().isEmpty() && !et_password.getText().toString().isEmpty() ){
+                    ejecutarServicio("http://"+ip+"/orderit/registroUsuario.php");
+                }else{
+                    Toast.makeText(getApplicationContext(), "No se premiten campos vacios", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

@@ -135,8 +135,14 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         btn_hacerPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarPedido("http://"+ip+"/orderit/registroPedido.php?fecha="+tv_datePedido.getText().toString()+"&cantidad="+et_cantidadPedido.getText().toString()+
-                        "&total="+tv_totalPedido.getText().toString()+"&Platillos_idPlatillos="+tv_idPlatillo.getText().toString()+"&Usuario_idUsuario="+tv_idusuario.getText().toString());
+                if (!tv_datePedido.getText().toString().isEmpty() && !et_cantidadPedido.getText().toString().isEmpty() && !tv_totalPedido.getText().toString().isEmpty()
+                && !tv_idPlatillo.getText().toString().isEmpty() && !tv_idusuario.getText().toString().isEmpty()){
+                    ejecutarPedido("http://"+ip+"/orderit/registroPedido.php?fecha="+tv_datePedido.getText().toString()+"&cantidad="+et_cantidadPedido.getText().toString()+
+                            "&total="+tv_totalPedido.getText().toString()+"&Platillos_idPlatillos="+tv_idPlatillo.getText().toString()+"&Usuario_idUsuario="+tv_idusuario.getText().toString());
+                }else{
+                    Toast.makeText(getApplicationContext(), "No se permiten campos vacios", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

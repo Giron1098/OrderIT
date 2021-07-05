@@ -92,8 +92,13 @@ public class ACT_EditarPerfil extends AppCompatActivity {
 
                 if(nombreET.length() != nombre.length() || apPaternoET.length() != ApPaterno.length() || apMaternoET.length() != ApMaterno.length() || emailET.length() != Email.length() || passwordET.length() != Password.length() ) {
                     System.out.println("HUBO CAMBIOS");
+                    if (!nombreET.isEmpty() && !apPaternoET.isEmpty() && !apMaternoET.isEmpty() && !emailET.isEmpty() && !passwordET.isEmpty()){
+                        actualizarDatosUsuario("http://"+ip+"/orderit/updateDatosUsuario.php?nombreUsuario="+nombreET+"&apPaterno="+apPaternoET+"&apMaterno="+apMaternoET+"&email="+emailET+"&password="+passwordET+"&idUsuario="+ID_Usuario);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Hay algun campo vacio", Toast.LENGTH_SHORT).show();
+                    }
 
-                    actualizarDatosUsuario("http://"+ip+"/orderit/updateDatosUsuario.php?nombreUsuario="+nombreET+"&apPaterno="+apPaternoET+"&apMaterno="+apMaternoET+"&email="+emailET+"&password="+passwordET+"&idUsuario="+ID_Usuario);
+
 
                 }else
                 {
