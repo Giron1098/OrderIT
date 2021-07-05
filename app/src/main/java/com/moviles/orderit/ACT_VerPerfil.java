@@ -99,7 +99,7 @@ public class ACT_VerPerfil extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 });
         RequestQueue requestQueue= Volley.newRequestQueue(this);

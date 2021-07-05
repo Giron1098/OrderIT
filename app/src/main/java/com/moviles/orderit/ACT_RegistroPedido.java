@@ -147,7 +147,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         StringRequest stringRequest=new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Pedido Exitoso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "PEDIDO REALIZADO", Toast.LENGTH_LONG).show();
 
                 Intent int_act_loginForm= new Intent(ACT_RegistroPedido.this   , ACT_Restaurantes.class);
                 startActivity(int_act_loginForm);
@@ -155,7 +155,7 @@ public class ACT_RegistroPedido extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
             }
         }){
 
@@ -201,14 +201,14 @@ public class ACT_RegistroPedido extends AppCompatActivity {
                         tv_idusuario.setText(""+jsonObject.getInt("idUsuario"));
                         tv_idusuario.setVisibility(View.INVISIBLE);
                     } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Error de conexion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error de conexion", Toast.LENGTH_LONG).show();
             }
         });
         RequestQueue requestQueue= Volley.newRequestQueue(this);

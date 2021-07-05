@@ -138,7 +138,7 @@ public class ACT_Restaurantes extends AppCompatActivity {
         } else if (id==R.id.op_cerrar_sesion)
         {
             SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
-            preferences.edit().clear().commit();
+            preferences.edit().clear().apply();
             Intent intent=new Intent(getApplicationContext(), EsperaActivityCS.class);
             startActivity(intent);
             finish();

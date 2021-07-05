@@ -56,7 +56,7 @@ public class ACT_Registro extends AppCompatActivity {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Registro Exitoso", Toast.LENGTH_LONG).show();
                 et_nombre.setText("");
                 et_apPaterno.setText("");
                 et_apMaterno.setText("");
@@ -69,7 +69,7 @@ public class ACT_Registro extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
             }
         }){
             @Override

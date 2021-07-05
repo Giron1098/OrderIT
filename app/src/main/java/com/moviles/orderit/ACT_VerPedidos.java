@@ -79,14 +79,14 @@ public class ACT_VerPedidos extends AppCompatActivity {
                         tv_idusuario.setVisibility(View.INVISIBLE);
                         verPedidos("http://"+ip+"/orderit/consultaPedidos.php?idUsuario="+tv_idusuario.getText().toString());
                     } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Error de conexion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error de conexion", Toast.LENGTH_LONG).show();
             }
         });
         RequestQueue requestQueue= Volley.newRequestQueue(this);

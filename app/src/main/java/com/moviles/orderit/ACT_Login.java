@@ -52,7 +52,7 @@ public class ACT_Login extends AppCompatActivity {
                 if(!email.isEmpty() && !password.isEmpty()){
                     validarUsuario("http://"+ip+"/orderit/validarUsuario.php");
                 }else{
-                    Toast.makeText(ACT_Login.this,"No se permiten campos vacios",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ACT_Login.this,"No se permiten campos vacios",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -73,13 +73,13 @@ public class ACT_Login extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(ACT_Login.this,"Usuario o contraseña incorrectos",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ACT_Login.this,"Usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ACT_Login.this,error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(ACT_Login.this,error.toString(),Toast.LENGTH_LONG).show();
             }
         }){
             @Override

@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderIT"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ACT_VerPerfil"
+        <activity android:name=".ACT_EditarPerfil"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" ></activity>
+        <activity
+            android:name=".ACT_VerPerfil"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ACT_VerPedidos"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
