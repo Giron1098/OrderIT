@@ -16,7 +16,7 @@ Programación de Dispositivos Móviles I | Unidad 5 | Web Services
 
 ✅El usuario podrá consultar una lista general de los pedidos que ha hecho.
 ✅El usuario podrá ver sus datos.
-El usuario podrá editar sus datos.
+✅El usuario podrá editar sus datos.
 
 
 
