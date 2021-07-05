@@ -98,6 +98,10 @@ public class ACT_EditarPerfil extends AppCompatActivity {
                 }else
                 {
                     Toast.makeText(getApplicationContext(), "SIN CAMBIOS EN SUS DATOS", Toast.LENGTH_LONG).show();
+
+                    Intent int_act_registerForm= new Intent(ACT_EditarPerfil.this, ACT_VerPerfil.class);
+                    startActivity(int_act_registerForm);
+
                     System.out.println("NO HUBO CAMBIOS");
                 }
             }
